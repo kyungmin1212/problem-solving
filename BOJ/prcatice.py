@@ -1,2 +1,0 @@
-a=[]
-print(sum(a))
