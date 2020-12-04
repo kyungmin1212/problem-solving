@@ -13,10 +13,15 @@
 입력 : 첫째 줄에 숫자 N이 주어진다. N은 10,000보다 작거나 같은 자연수이다.
 출력 : 첫째 줄에 N번째 영화의 제목에 들어간 수를 출력한다.
 """
-number=int(input(""))
-a=[]
-for i in range(666,10000000):
-    b=str(i)
+import sys
+n=int(sys.stdin.readline())
+len=0
+a=666
+while len<=10000:
+    b=str(a)
     if "666" in b:
-        a.append(i)
-print(a[number-1])
+        len+=1
+    if len==n:
+        print(a)
+        break
+    a+=1
