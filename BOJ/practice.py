@@ -1,3 +1,5 @@
-a=[1,2,3,4,5,1,3]
-b=[2,3,4]
-print(a.index(1,-1))
+a="apple"
+print(str.index("p"))
+print(str.index("e"))
+a[2:4]=""
+print(str)

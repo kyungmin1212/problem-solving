@@ -103,35 +103,16 @@ def check(i):
 
 count=0
 
-
-def check2(i,area):
-    if label[truck][i][2]<=delivery[0][2]+area:
-        delivery.append(label[truck][i][2])
-        delivery[0][2]=delivery[0][2]-label[truck][i][2]+area
-        delivery[0][4] = delivery[0][2] / delivery[0][3]
-    elif label[truck][i][2]>c:
-        label[truck][i][2]=c
-        label[truck][i][4] = label[truck][i][2] / label[truck][i][3]
-        delivery.append(label[truck][i][2])
-    elif label[truck][i][2]>delivery[0][2]+area:
-        pass
-
-
 for truck in range(len(label)):
 
     for i in range(len(label[truck])):
         if capacity<c:
-            bef_capacity=capacity
             capacity+=label[truck][i][2]
             if capacity>c:
-                if delivery[0][4] and (label[truck][i][4]<=delivery[0][4]):
-                    new_value=capacity-c
-                    label[truck][i][2]=label[truck][i][2]-new_value
-                    label[truck][i][4]=label[truck][i][2]/label[truck][i][3]
-                    capacity=c
-                else:
-                    area=c-bef_capacity
-
+                new_value=capacity-c
+                label[truck][i][2]=label[truck][i][2]-new_value
+                label[truck][i][4]=label[truck][i][2]/label[truck][i][3]
+                capacity=c
             delivery.append(label[truck][i])
             delivery=sorted(delivery,key=lambda x:x[4])
 
