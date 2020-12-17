@@ -30,7 +30,7 @@ def find():
 ans=[]
 for i in range(tc):
     n,m=map(int,sys.stdin.readline().split())
-    n_list=[[int(x),idx] for idx,x in enumerate(sys.stdin.readline().split())]
+    n_list=[[int(x),idx] for idx,x in enumerate(input().split())]
     # n_list 우선순위 리스트가 담긴것 x: 우선순위 ,idx:처음 데이터 위치 나중에 구분하기 위함
     b=n_list[m]
     a=0

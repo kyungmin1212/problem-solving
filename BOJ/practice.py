@@ -1,5 +1,9 @@
-a="apple"
-print(str.index("p"))
-print(str.index("e"))
-a[2:4]=""
-print(str)
+a=[1,2,3,4]
+b=[8,7,6,5]
+a.extend(b)
+print(a)
+a.extend(reversed(b))
+print(a)
+print(b)
+b.reverse()
+print(b)
