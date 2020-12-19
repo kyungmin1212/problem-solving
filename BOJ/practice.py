@@ -1,9 +1,25 @@
-a=[1,2,3,4]
-b=[8,7,6,5]
-a.extend(b)
-print(a)
-a.extend(reversed(b))
-print(a)
-print(b)
-b.reverse()
-print(b)
+import copy
+
+arr=[]
+
+def plu(data,n):
+    if len(data)==n:
+        arr.append(copy.deepcopy(data))
+        return
+    data.append('a')
+    plu(data,n)
+    data.pop()
+
+    data.append('b')
+    plu(data,n)
+    data.pop()
+
+    data.append('c')
+    plu(data,n)
+    data.pop()
+
+plu([],3)
+print(arr)
+arr=[]
+plu([],4)
+print(arr)
