@@ -1,25 +1,10 @@
-import copy
+a=[1,2,3,4]
 
-arr=[]
+for i in a:
+    print(i)
+    if i==2:
+        print("hi")
+        a.remove(2)
 
-def plu(data,n):
-    if len(data)==n:
-        arr.append(copy.deepcopy(data))
-        return
-    data.append('a')
-    plu(data,n)
-    data.pop()
 
-    data.append('b')
-    plu(data,n)
-    data.pop()
-
-    data.append('c')
-    plu(data,n)
-    data.pop()
-
-plu([],3)
-print(arr)
-arr=[]
-plu([],4)
-print(arr)
+print(a)
