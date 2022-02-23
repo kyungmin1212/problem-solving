@@ -1,26 +1,31 @@
+from collections import deque
+from heapq import heappush,heappop
+
 t=int(input())
 
-for i in range(t):
-    n,m=list(map(int,input().split()))
-    data=list(map(int,input().split()))
-    data2=[]
-    for j in range(len(data)):
-        data2.append([data[j],j])
+for _ in range(t):
+    n,m=map(int,input().split())
+    q=deque()
+    hq=[]
+    prior_list=list(map(int,input().split()))
+    for i in range(n):
+        q.append((prior_list[i],i))
+        heappush(hq,(-prior_list[i]))
 
     count=0
-    while True:
-        length = len(data2)
-        max_value=data2[0][0]
-        for l in range(1,length):
-            if max_value<data2[l][0]:
-                max_value=data2[l][0]
-
-        while data2[0][0]!=max_value:
-            data2.append(data2[0])
-            del data2[0]
+    while hq:
+        flag=False
         count+=1
-
-        if data2[0][1]==m:
-            print(count)
+        check_prior=-heappop(hq)
+        while True:
+            prior, index = q.popleft()
+            if check_prior==prior and index==m:
+                flag=True
+                print(count)
+                break
+            elif check_prior==prior:
+                break
+            else:
+                q.append((prior,index))
+        if flag:
             break
-        del data2[0]
